@@ -57,3 +57,10 @@ pip install langchain langchain-openai langchain-community python-dotenv
 OPENAI_API_KEY=...
 LLM=...
 ```
+
+# Create a requirements.txt
+
+```sh
+PS D:\LangChain> fastapi_env/Scripts/activate
+(fastapi_env) PS D:\LangChain> pip freeze > requirements.txt
+```

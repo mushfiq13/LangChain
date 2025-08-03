@@ -23,7 +23,7 @@ Install the essential libraries:
 pip install fastapi uvicorn python-multipart
 ```
 
-## Run FastAPIs
+## Run Development Server
 
 ```sh
 # If you keep the main.py inside the fastapi_env

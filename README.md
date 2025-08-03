@@ -30,3 +30,13 @@ uvicorn main:app --reload
 # But in our case, we kept the main.py inside app folder
 uvicorn app.main:app --reload
 ```
+
+# Install and Run Tests with pytest
+
+```sh
+pip install pytest httpx
+```
+
+```sh
+pytest app/test_main.py -v
+```

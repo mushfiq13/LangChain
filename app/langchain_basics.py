@@ -1,9 +1,15 @@
 import os
+import SQLOutputParser
+
 from dotenv import load_dotnev
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
-import SQLOutputParser
+from langchain.utilities import SQLDatabase
+from sqlalchemy import create_engine
+from langchain.chains import SQLDatabaseChain
+from langchain.memory import ConversationBufferMemory
+from langchain.chains import ConversationChain
 
 load_dotnev()
 
@@ -49,4 +55,18 @@ sql_chain_with_parser = LLMChain(
   llm=llm,
   prompt=enhanced_prompt,
   output_parser=SQLOutputParser()
+)
+
+# Create in-memory SQLite database for testing
+engine = create_engine("sqlite:///test.db")
+db = SQLDatabase.from_uri("sqlite:///test.db")
+
+# Create SQL Database Chain
+sql_db_chain = SQLDatabaseChain.from_llm(llm, db, verbose=True)
+
+memory = ConversationBufferMemory()
+conversation = ConversationChain(
+  llm=llm,
+  memory=memory,
+  verbose=True
 )

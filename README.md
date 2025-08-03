@@ -1,6 +1,8 @@
 **LangChain**
 
-# Environment Setup
+# Expore FastAPI
+
+## Environment Setup
 
 Use `python` interpreter to run the built-in `venv` module to create a **virtual
 environment** named `fastapi_env`.
@@ -21,7 +23,7 @@ Install the essential libraries:
 pip install fastapi uvicorn python-multipart
 ```
 
-# Run FastAPIs
+## Run FastAPIs
 
 ```sh
 # If you keep the main.py inside the fastapi_env
@@ -31,7 +33,7 @@ uvicorn main:app --reload
 uvicorn app.main:app --reload
 ```
 
-# Install and Run Tests with pytest
+## Install and Run Tests with pytest
 
 ```sh
 pip install pytest httpx
@@ -39,4 +41,19 @@ pip install pytest httpx
 
 ```sh
 pytest app/test_main.py -v
+```
+
+# LangChain Setup & Basic Chains
+
+**Installation & Setup:**
+
+```sh
+pip install langchain langchain-openai langchain-community python-dotenv
+```
+
+**Set Environment Variables (.env file):**
+
+```
+OPENAI_API_KEY=...
+LLM=...
 ```
